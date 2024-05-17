@@ -49,7 +49,8 @@ export const getTransactionsByEmployee = ({ employeeId }: RequestByEmployeeParam
 
 export const setTransactionApproval = ({ transactionId, value }: SetTransactionApprovalParams): void => {
   const transaction = data.transactions.find(
-    (currentTransaction) => currentTransaction.id === transactionId
+    (currentTransaction) => 
+      currentTransaction.id === transactionId
   )
 
   if (!transaction) {
@@ -57,4 +58,10 @@ export const setTransactionApproval = ({ transactionId, value }: SetTransactionA
   }
 
   transaction.approved = value
+
+  // data.transactions.map((_transaction) => {
+  //   if (_transaction.id === transactionId) {
+  //     _transaction.approved = value
+  //   }
+  // })
 }

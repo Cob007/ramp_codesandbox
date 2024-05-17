@@ -13,8 +13,8 @@ export function App() {
   const { data: paginatedTransactions,  ...paginatedTransactionsUtils } = usePaginatedTransactions()
   const { data: transactionsByEmployee, ...transactionsByEmployeeUtils } = useTransactionsByEmployee()
   const [isLoading, setIsLoading] = useState(false)
-
   const [filter, setFilter] = useState(false)
+
 
   const transactions = useMemo(
     () =>  
@@ -80,10 +80,10 @@ export function App() {
           <Transactions transactions={transactions} />
 
           {transactions !== null && paginatedTransactions?.nextPage !==null && 
-          !filter && (
+          !filter &&(
             <button
               className="RampButton"
-              disabled={paginatedTransactionsUtils.loading }
+              disabled={paginatedTransactionsUtils.loading}
               onClick={async () => {
                 await loadAllTransactions()
               }}

@@ -35,6 +35,7 @@ export function useCustomFetch() {
     ): Promise<TData | null> =>
       wrappedRequest<TData>(async () => {
         const result = await fakeFetch<TData>(endpoint, params)
+        console.log('result :', result);
         return result
       }),
     [wrappedRequest]
